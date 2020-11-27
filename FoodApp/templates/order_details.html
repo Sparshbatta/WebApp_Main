@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+<br><br>
+<center><u><b><h1>Order Info</h1></b></u></center>
+<br>
+<div class="container">
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Order_id</th>
+        <th scope="col">Date</th>
+        <th scope="col">Placing Time</th>
+        <th scope="col">Expected Delivery By</th>
+        <th  scope="col">Delivered To</th>
+        <th scope="col">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{order.order_id}}</th>
+        <td>{{order.placed_date}}</td>
+        <td>{{order.placed_time}}</td>
+        <td>{{order.delivery_time}}</td>
+        <td>{{order.user.address}}</td>
+        <td>{{order.total_price}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+{% endblock %}

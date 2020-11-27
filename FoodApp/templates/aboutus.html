@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<nav id="navbar-example2" class="navbar navbar-light bg-warning">
+    <a class="navbar-brand" href="#">Insights</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#about" style="color: black;">About this site</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#prime" style="color:black">Prime Membership</a>
+      </li>
+   
+    </ul>
+  </nav>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    <h4 id="about">About Us</h4>
+    <p>...</p>
+    <h4 id="prime">Prime Membership</h4>
+    <p>...</p>
+  
+  </div>
+{% endblock %}

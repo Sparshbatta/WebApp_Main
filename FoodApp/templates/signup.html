@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+label
+{
+font-weight:bold;
+}
+body
+{
+background:url('{% static 'Images/signup2.jpg' %}') no-repeat center fixed;
+}
+
+{% endblock %}
+{% block body %}
+{% if  messages %}
+<div class="alert alert-danger alert-dismissible fade show" style="height:50px;"  role="alert">
+    {% for message in messages %}
+   
+    <strong>Warning!!</strong> {{ message }}
+
+{% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+   
+{% endif %}
+
+
+<div class="container">
+    <form style="margin-left:40px; margin-top:100px; padding:10px ;background-color:beige;" action='/user/signup/' enctype='multipart/form-data' method='post'>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" required maxlength=13 id="username">
+            <small id="username"  style="color:black">
+              
+                Should not be more than 13 characters long and shoud not contain any special symbols except _
+            </small>
+          </div>
+         
+          <div class="form-group">
+            <label for="inputEmail4">Email</label>
+            <input type="email" name="email" class="form-control" required id="inputEmail4">
+          </div>
+        
+           
+            <div class="form-group">
+              <label for="inputPassword4">Password</label>
+              <input type="password" name="password" class="form-control" required id="inputPassword4">
+              <small id="inputPassword4"  style="color:black">
+              
+                Your password must be 8-20 characters long.
+              </small>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword4">Re-Type Password</label>
+                <input type="password" name="repassword" class="form-control" required id="inputPassword4">
+              </div>
+        
+          <div class="form-group">
+            <label for="inputAddress">Phone Number</label>
+            <input type="text" maxlength=12 name="phone" class="form-control" required id="inputAddress" placeholder="Enter your phone number">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" name="address" class="form-control" id="inputAddress" required placeholder="1234 Main St">
+          </div>
+         
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" name="city" class="form-control" required id="inputCity">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputState">State</label>
+              <select id="inputState" name="state" required class="form-control">
+                <option selected>Choose your state...</option>
+                <option>
+    <option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+                </option>
+              </select>
+            </div>
+           
+          </div>
+          <div class="form-group ml-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="prime" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Try Prime Membership?
+              </label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-left:180px; margin-right:180px;">
+            <div class="custom-file">
+              <input type="file" name="image" required class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Choose Your Profile Image</label>
+            </div>
+          </div>
+          <center><button type="submit" class="btn btn-primary">Sign Up</button></center>
+      </form>
+    </div>
+
+    <br><br>
+    <a href="/user/login/" style="margin-left: 600px; color:black ;background-color:cornflowerblue">Already have an account? Login here...</a>
+  
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Purchase item-{{dish.name}}</h1>
+<h1>Item price-{{price}}</h1>
+<form action="placed/{{dish.name}}" method="POST">
+    {% csrf_token %}
+    <label for="orderquantity">Quantity</label>
+<input type="number" id="orderquantity" required value=1 name="quantity">
+    <input class="btn btn-primary" type="submit" value="Order">
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+<u><b><center><h1>User Details</h1></center></b></u>
+<br><br>
+<center><a href="{{client.image.url}}"><img src="{{client.image.url}}" style="border:4px solid; border-color:darkgoldenrod; width:400px; height:350px"></a></center>
+<br><br>
+<div class="container">
+  <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">Username</th>
+          <th scope="col">{{client.user.username}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">Email</th>
+          <th scope="col">{{client.user.email}}</th>
+        </tr>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">Phone No.</th>
+          <th scope="col">{{client.phone}}</th>
+      
+        </tr>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">Address</th>
+          <th scope="col">{{client.address}}</th>
+      
+        </tr>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">City</th>
+          <th scope="col">{{client.city}}</th>
+      
+        </tr>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">State</th>
+          <th scope="col">{{client.state}}</th>
+      
+        </tr>
+        <tr>
+          <th scope="col" style="color:rgb(179, 255, 0)">Prime Membership Status</th>
+          <th scope="col">{% if client.prime %}Currently a prime member{% else %}Not a prime member {% endif %}</th>
+      
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
